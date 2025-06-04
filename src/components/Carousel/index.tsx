@@ -7,7 +7,7 @@ import React, {
     useRef,
     useState,
 } from "react";
-import Button from "./Button";
+import Button from "../Button";
 import { twMerge } from "tailwind-merge";
 import useWindowDimensions from "@/hooks/useWindowDimentions";
 
