@@ -10,8 +10,9 @@ export default function VisaConsulting() {
   ) {
     return (
       <div
+        style={{ rotate: `${rotation}deg` }}
         className={twMerge([
-          `bg-background p-2.5 shadow-xl rounded-[10px] absolute rotate-[${rotation}deg]`,
+          `bg-background p-2.5 shadow-xl rounded-[10px] absolute`,
           className,
         ])}
       >
@@ -36,7 +37,7 @@ export default function VisaConsulting() {
             </h1>
           </div>
           <div className="relative mt-5 lg:mt-0">
-            {renderIconContainer("clock", "30", "bottom-[-40px] left-1/4")}
+            {renderIconContainer("clock", "-19", "bottom-[-40px] left-1/4")}
             <h1 className="text-center lg:text-right text-5xl md:text-6xl tracking-tight uppercase font-medium italic">
               você esta em boas mãos!
             </h1>

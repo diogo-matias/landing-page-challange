@@ -1,3 +1,4 @@
+import Accordion from "@/components/Accordion";
 import Button from "@/components/Button";
 import Image from "next/image";
 import { useState } from "react";
@@ -41,34 +42,6 @@ export default function Benefits() {
     );
   }
 
-  function Accordion(props: AccordionPropTypes) {
-    const { title, content, isOpen, setIsOpen } = props;
-
-    return (
-      <div className="w-full overflow-hidden border-b mb-3 border-light-gray">
-        <li>
-          <span className="text-2xl sm:text-[44px] px-3 font-medium tracking-tighter ">
-            {title}
-          </span>
-          {!isOpen && (
-            <div
-              onClick={setIsOpen}
-              className="px-3 mb-3 font-medium cursor-pointer"
-            >
-              + Leia Mais
-            </div>
-          )}
-          <div
-            style={{ maxHeight: isOpen ? "200px" : "0px" }}
-            className=" max-h-52 transition-all duration-600 ease-in-out"
-          >
-            <p className="text-neutral pb-2.5 px-3">{content}</p>
-          </div>
-        </li>
-      </div>
-    );
-  }
-
   function Accordions() {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -81,12 +54,12 @@ export default function Benefits() {
       {
         title: "Processo de Entrevista",
         content:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       },
       {
         title: "Entrega de Documentos",
         content:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry, Lorem Ipsum is simply dummy text of the printing and typesetting industry",
       },
     ];
 
@@ -126,10 +99,3 @@ export default function Benefits() {
     </div>
   );
 }
-
-type AccordionPropTypes = {
-  title: string;
-  content: string;
-  isOpen: boolean;
-  setIsOpen: () => void;
-};

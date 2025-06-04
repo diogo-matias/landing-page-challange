@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function LastSection() {
   function customButton() {
     return (
-      <div className="flex justify-between w-full lg:w-[500px] max-w-[500px]  pb-3.5 border-b">
+      <div className="flex justify-between w-full lg:w-[500px] max-w-[500px] pb-3.5 border-b cursor-pointer">
         <span className="text-[40px] tracking-tight">Receba Novidades</span>
         <div className="w-10 h-10 ">
           <ArrowIcon direction="topRight" size={40} />
@@ -40,81 +40,36 @@ export default function LastSection() {
       {
         title: "Empresa",
         subOptions: [
-          {
-            title: "Home",
-            url: "",
-          },
-          {
-            title: "Quem somos",
-            url: "",
-          },
-          {
-            title: "Serviços",
-            url: "",
-          },
-          {
-            title: "Contato",
-            url: "",
-          },
+          { title: "Home", url: "" },
+          { title: "Quem somos", url: "" },
+          { title: "Serviços", url: "" },
+          { title: "Contato", url: "" },
         ],
       },
       {
         title: "Novidades",
         subOptions: [
-          {
-            title: "Passaporte",
-            url: "",
-          },
-          {
-            title: "Visto",
-            url: "",
-          },
-          {
-            title: "Entrevista",
-            url: "",
-          },
-          {
-            title: "Polícia Federal",
-            url: "",
-          },
+          { title: "Passaporte", url: "" },
+          { title: "Visto", url: "" },
+          { title: "Entrevista", url: "" },
+          { title: "Polícia Federal", url: "" },
         ],
       },
       {
         title: "Suporte",
         subOptions: [
-          {
-            title: "FAQ",
-            url: "",
-          },
-          {
-            title: "Contato",
-            url: "",
-          },
-          {
-            title: "Dúvidas Frequentes",
-            url: "",
-          },
+          { title: "FAQ", url: "" },
+          { title: "Contato", url: "" },
+          { title: "Dúvidas Frequentes", url: "" },
         ],
       },
     ];
 
     const social = [
-      {
-        label: "Instagram",
-        url: "https://www.youtube.com",
-      },
-      {
-        label: "X",
-        url: "",
-      },
-      {
-        label: "Facebook",
-        url: "",
-      },
-      {
-        label: "Youtube",
-        url: "",
-      },
+      { label: "Instagram", url: "https://www.youtube.com" },
+      { label: "X", url: "" },
+      { label: "Facebook", url: "" },
+      { label: "Youtube", url: "" },
     ];
 
     return (
@@ -143,15 +98,17 @@ export default function LastSection() {
             <ul className="flex justify-between">
               {nav.map((item) => {
                 return (
-                  <div>
+                  <div className="flex flex-col">
                     <span className="font-medium mb-5">{item.title}</span>
-                    {item.subOptions.map((subOption) => {
-                      return (
-                        <li className="text-neutral">
-                          <Link href={subOption.url}>{subOption.title}</Link>
-                        </li>
-                      );
-                    })}
+                    <div className="flex flex-col gap-3">
+                      {item.subOptions.map((subOption) => {
+                        return (
+                          <li className="text-neutral">
+                            <Link href={subOption.url}>{subOption.title}</Link>
+                          </li>
+                        );
+                      })}
+                    </div>
                   </div>
                 );
               })}

@@ -3,48 +3,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
+import Header from "@/components/Header";
+import { useRef } from "react";
+import YoutubeEmbed from "@/components/YoutubeEmbed";
+import { ArrowIcon } from "@/components/icons/ArrowIcon";
 
 export default function Hero() {
+  const headerRef = useRef(null);
+
   function renderDivider() {
     return <div className="w-full h-[1.5px] bg-light-gray" />;
   }
 
   function renderHeader() {
-    const options = ["Home", "Quem somos", "Serviços", "Contato"];
-    const selected = "Home";
-
-    return (
-      <header className="my-7 w-full ">
-        <nav className="flex justify-between sm:items-center gap-1.5">
-          <Image
-            className="cursor-pointer"
-            alt="logo"
-            src={"/images/logo.png"}
-            width={150}
-            height={40}
-          />
-          <ul className="sm:flex items-center hidden">
-            {options.map((option) => {
-              const isSelected = option === selected;
-              const customStyle = isSelected ? "font-bold" : "";
-
-              return (
-                <li className={`${customStyle} p-3 text-nowrap cursor-pointer`}>
-                  {option}
-                </li>
-              );
-            })}
-          </ul>
-          <div className="flex sm:hidden mr-3">
-            <FontAwesomeIcon
-              fontSize={24}
-              icon={faBars}
-              className="cursor-pointer"
-            />
-          </div>
-        </nav>
-      </header>
-    );
+    return <Header ref={headerRef} />;
   }
 
   function renderNumbersInfos(number: number, label: string) {
@@ -63,7 +35,7 @@ export default function Hero() {
 
   function renderBottomInfo() {
     return (
-      <div className="grid grid-cols-3 gap-6 mt-10 sm:divide-x sm:divide-light-gray px-5 lg:px-0">
+      <div className="grid grid-cols-3 gap-6 divide-x divide-light-gray md:px-5 lg:px-0">
         {renderNumbersInfos(509, "Vistos tirados")}
         {renderNumbersInfos(602, "Passaportes Tirados")}
         {renderNumbersInfos(634, "Famílias Felizes")}
@@ -73,7 +45,7 @@ export default function Hero() {
 
   function renderMainInfo() {
     return (
-      <div className="mt-14 flex lg:flex-row flex-col items-center lg:items-end gap-4">
+      <div className="mt-10 lg:mt-[60px] flex lg:flex-row flex-col items-center lg:justify-between lg:items-end gap-4 mb-5 lg:mb-0">
         <div className="w-[80%] md:w-[50%] flex flex-col lg:items-start items-center">
           <p className="text-neutral text-center lg:text-start tracking-tight">
             Com uma equipe altamente treinada, nós temos todos os procedimentos
@@ -82,25 +54,14 @@ export default function Hero() {
             preocupação na sua viagem.
           </p>
           <div>
-            <Button className="mt-10">{"Saiba mais ->"}</Button>
+            <Button className="mt-10 mb-10 lg:mb-0 flex gap-3">
+              Saiba mais <ArrowIcon direction="right" color="white" size={24} />{" "}
+            </Button>
           </div>
         </div>
-        <div className="w-[70%] md:w-[50%] lg:w-[30%] flex items-end">
-          <div className="flex flex-col ">
-            <Image
-              alt="hero"
-              src={"/images/thumb.png"}
-              height={800}
-              width={800}
-              objectFit="contain"
-            ></Image>
-            <div className="flex justify-between mt-3">
-              <div>
-                <p className="font-semibold">Conheça a bruna</p>
-                <span className="text-neutral text-sm">ver video</span>
-              </div>
-              <Button className="p-0 h-14 w-14">{"->"}</Button>
-            </div>
+        <div className="w-[90%] md:w-[70%] lg:w-[40%] flex items-end">
+          <div className="flex flex-col">
+            <YoutubeEmbed />
           </div>
         </div>
       </div>
@@ -109,21 +70,21 @@ export default function Hero() {
 
   function renderInfo() {
     return (
-      <div className="w-full lg:w-[40%] flex flex-col items-center">
+      <div className="w-[90%] lg:w-[40%] flex flex-col items-center">
         {renderHeader()}
-        <h1 className="sm:text-[54px] text-5xl text-center lg:text-left mb-8 font-medium tracking-[-0.05em]">
+        <h1 className="sm:text-[54px] text-5xl text-center lg:text-left mb-8 mt-10 font-medium tracking-[-0.05em]">
           Tire seu Visto conosco e não tenha nenhuma surpresa negativa!
         </h1>
         {renderDivider()}
         {renderMainInfo()}
-        <div>{renderBottomInfo()}</div>
+        <div className="mt-10 lg:mt-[90px]">{renderBottomInfo()}</div>
       </div>
     );
   }
 
   function renderBanner() {
     return (
-      <div className="mt-5 flex-1 max-h-[100vh] flex items-center justify-end">
+      <div className="mt-5 flex-1 max-h-[100vh] flex items-center xl:justify-start justify-end">
         <div className="relative">
           <Button variant="secondary" className="absolute right-4 top-4">
             Tirar meu visto agora!
@@ -146,7 +107,7 @@ export default function Hero() {
           <Image
             alt="hero"
             src={"/images/banner-hero.jpg"}
-            width={700}
+            width={762}
             height={900}
             objectFit="contain"
             className="rounded-3xl"
@@ -157,7 +118,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="h-full justify-center items-center flex lg:flex-row flex-col gap-10">
+    <div className="justify-center items-center lg:items-stretch flex lg:flex-row flex-col gap-10">
       {renderInfo()}
       {renderBanner()}
     </div>
