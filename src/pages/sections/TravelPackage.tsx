@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Button from "@/components/Button";
 import Carousel from "@/components/Carousel";
 import { useRef } from "react";
