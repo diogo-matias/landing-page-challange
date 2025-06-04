@@ -1,5 +1,7 @@
 import Button from "@/components/Button";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import Wrapper from "@/components/Wrapper";
+import Link from "next/link";
 
 export default function LastSection() {
   function customButton() {
@@ -34,12 +36,141 @@ export default function LastSection() {
   }
 
   function renderNav() {
+    const nav = [
+      {
+        title: "Empresa",
+        subOptions: [
+          {
+            title: "Home",
+            url: "",
+          },
+          {
+            title: "Quem somos",
+            url: "",
+          },
+          {
+            title: "Serviços",
+            url: "",
+          },
+          {
+            title: "Contato",
+            url: "",
+          },
+        ],
+      },
+      {
+        title: "Novidades",
+        subOptions: [
+          {
+            title: "Passaporte",
+            url: "",
+          },
+          {
+            title: "Visto",
+            url: "",
+          },
+          {
+            title: "Entrevista",
+            url: "",
+          },
+          {
+            title: "Polícia Federal",
+            url: "",
+          },
+        ],
+      },
+      {
+        title: "Suporte",
+        subOptions: [
+          {
+            title: "FAQ",
+            url: "",
+          },
+          {
+            title: "Contato",
+            url: "",
+          },
+          {
+            title: "Dúvidas Frequentes",
+            url: "",
+          },
+        ],
+      },
+    ];
+
+    const social = [
+      {
+        label: "Instagram",
+        url: "https://www.youtube.com",
+      },
+      {
+        label: "X",
+        url: "",
+      },
+      {
+        label: "Facebook",
+        url: "",
+      },
+      {
+        label: "Youtube",
+        url: "",
+      },
+    ];
+
     return (
-      <div className="flex">
-        <div className=""></div>
-      </div>
+      <footer className="flex flex-col lg:flex-row w-full justify-between items-end gap-8 mb-16">
+        <div className="w-full flex flex-col justify-center md:justify-start mb-5 lg:mb-0 ">
+          <span className="font-semibold text-center md:text-left">
+            Siga em nossas redes:
+          </span>
+          <div className="mt-5 flex gap-2 md:gap-5 justify-center md:justify-start flex-wrap">
+            {social.map((social) => {
+              return (
+                <Link
+                  about="blank"
+                  key={social.label}
+                  href={social.url}
+                  className="px-4 py-2 border rounded-full"
+                >
+                  {social.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+        <div className="w-full">
+          <nav className="w-full">
+            <ul className="flex justify-between">
+              {nav.map((item) => {
+                return (
+                  <div>
+                    <span className="font-medium mb-5">{item.title}</span>
+                    {item.subOptions.map((subOption) => {
+                      return (
+                        <li className="text-neutral">
+                          <Link href={subOption.url}>{subOption.title}</Link>
+                        </li>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </ul>
+          </nav>
+        </div>
+      </footer>
     );
   }
 
-  return <div className="">{renderTitle()}</div>;
+  return (
+    <div className="">
+      <Wrapper>
+        {renderTitle()}
+        {renderNav()}
+      </Wrapper>
+      <div className="text-sm font-medium py-8 flex w-full justify-center items-center border-t border-t-light-gray ">
+        © 2025 Tirar Visto - Todos os Direitos Reservados
+      </div>
+    </div>
+  );
 }
