@@ -74,7 +74,7 @@ export default function Hero() {
     return (
       <div className="w-[90%] lg:w-[40%] flex flex-col items-center">
         {renderHeader()}
-        <AnimatedContent>
+        <AnimatedContent delay={0.2}>
           <h1 className="sm:text-[54px] text-5xl text-center lg:text-left mb-8 mt-10 font-medium tracking-[-0.05em]">
             Tire seu Visto conosco e não tenha nenhuma surpresa negativa!
           </h1>
