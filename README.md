@@ -98,8 +98,7 @@ src/
 
 ## 🏆 Por que este projeto é diferenciado?
 
-- **Não é só mais uma landing page**: é um showcase de arquitetura, performance e animação.
 - **Pronto para escalar**: fácil de adicionar novas features, seções ou integrações.
-- **Código limpo, comentado e testado**: ideal para aprendizado, referência ou uso em produção.
+- **Código limpo, comentado e testado**: ideal referência ou uso em produção.
 
 ---
