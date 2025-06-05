@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import { useRef } from "react";
 import YoutubeEmbed from "@/components/YoutubeEmbed";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import BlurText from "@/components/BlurText/BlurText";
+import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 
 export default function Hero() {
     const headerRef = useRef(null);
@@ -77,13 +79,22 @@ export default function Hero() {
         return (
             <div className="w-[90%] lg:w-[40%] flex flex-col items-center">
                 {renderHeader()}
-                <h1 className="sm:text-[54px] text-5xl text-center lg:text-left mb-8 mt-10 font-medium tracking-[-0.05em]">
-                    Tire seu Visto conosco e não tenha nenhuma surpresa
-                    negativa!
-                </h1>
-                {renderDivider()}
-                {renderMainInfo()}
-                <div className="mt-10 lg:mt-[90px]">{renderBottomInfo()}</div>
+                <BlurText
+                    stepDuration={0.2}
+                    text="Tire seu Visto conosco e não tenha nenhuma surpresa
+                        negativa!"
+                    className="sm:text-[54px] text-5xl text-center lg:text-left mb-8 mt-10 font-medium tracking-[-0.05em]"
+                ></BlurText>
+                <AnimatedContent>
+                    {renderDivider()}
+                    {renderMainInfo()}
+                </AnimatedContent>
+
+                <AnimatedContent delay={1}>
+                    <div className="mt-10 lg:mt-[90px]">
+                        {renderBottomInfo()}
+                    </div>
+                </AnimatedContent>
             </div>
         );
     }
@@ -131,7 +142,7 @@ export default function Hero() {
     return (
         <div className="justify-center items-center lg:items-stretch flex lg:flex-row flex-col gap-10">
             {renderInfo()}
-            {renderBanner()}
+            <AnimatedContent delay={0.5}>{renderBanner()}</AnimatedContent>
         </div>
     );
 }

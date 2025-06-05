@@ -1,3 +1,4 @@
+import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 import Button from "@/components/Button";
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
 import Wrapper from "@/components/Wrapper";
@@ -20,21 +21,25 @@ export default function LastSection() {
     function renderTitle() {
         return (
             <div className="mb-10 flex flex-col items-center md:flex-row md:justify-between md:items-center gap-8">
-                <div className="flex flex-col items-center md:items-start  w-full md:w-[50vw] lg:w-[35vw]">
-                    <h2 className="title-1 text-center md:text-left">
-                        Está com alguma dúvida?
-                    </h2>
-                    <p className="text-neutral mt-2 text-center md:text-left">
-                        Entre em contato através do nosso canal direto ao
-                        cliente através do botão abaixo
-                    </p>
-                    <div>
-                        <Button className="mt-10">
-                            Central de Atendimento
-                        </Button>
+                <AnimatedContent>
+                    <div className="flex flex-col items-center md:items-start  w-full md:w-[50vw] lg:w-[35vw]">
+                        <h2 className="title-1 text-center md:text-left">
+                            Está com alguma dúvida?
+                        </h2>
+                        <p className="text-neutral mt-2 text-center md:text-left">
+                            Entre em contato através do nosso canal direto ao
+                            cliente através do botão abaixo
+                        </p>
+                        <div>
+                            <Button className="mt-10">
+                                Central de Atendimento
+                            </Button>
+                        </div>
                     </div>
-                </div>
-                <div className="mt-10 md:mt-0">{customButton()}</div>
+                </AnimatedContent>
+                <AnimatedContent delay={1}>
+                    <div className="mt-10 md:mt-0">{customButton()}</div>
+                </AnimatedContent>
             </div>
         );
     }
@@ -80,56 +85,61 @@ export default function LastSection() {
             <footer className="flex flex-col lg:flex-row w-full justify-between items-end gap-8 mb-16">
                 <div className="w-full flex flex-col justify-center md:justify-start mb-5 lg:mb-0 ">
                     <span className="font-semibold text-center md:text-left">
-                        Siga em nossas redes:
+                        <AnimatedContent>Siga em nossas redes:</AnimatedContent>
                     </span>
-                    <div className="mt-5 flex gap-2 md:gap-5 justify-center md:justify-start flex-wrap">
-                        {social.map((social) => {
-                            return (
-                                <Link
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    key={social.label}
-                                    href={social.url}
-                                    className="px-4 py-2 border rounded-full"
-                                >
-                                    {social.label}
-                                </Link>
-                            );
-                        })}
-                    </div>
-                </div>
-                <div className="w-full">
-                    <nav className="w-full">
-                        <ul className="flex justify-between">
-                            {nav.map((item) => {
+                    <AnimatedContent delay={0.5}>
+                        <div className="mt-5 flex gap-2 md:gap-5 justify-center md:justify-start flex-wrap">
+                            {social.map((social) => {
                                 return (
-                                    <div className="flex flex-col">
-                                        <span className="font-medium mb-5">
-                                            {item.title}
-                                        </span>
-                                        <div className="flex flex-col gap-3">
-                                            {item.subOptions.map(
-                                                (subOption) => {
-                                                    return (
-                                                        <li className="text-neutral">
-                                                            <Link
-                                                                href={
-                                                                    subOption.url
-                                                                }
-                                                            >
-                                                                {
-                                                                    subOption.title
-                                                                }
-                                                            </Link>
-                                                        </li>
-                                                    );
-                                                }
-                                            )}
-                                        </div>
-                                    </div>
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        key={social.label}
+                                        href={social.url}
+                                        className="px-4 py-2 border rounded-full"
+                                    >
+                                        {social.label}
+                                    </Link>
                                 );
                             })}
-                        </ul>
+                        </div>
+                    </AnimatedContent>
+                </div>
+
+                <div className="w-full">
+                    <nav className="w-full">
+                        <AnimatedContent>
+                            <ul className="flex justify-between">
+                                {nav.map((item) => {
+                                    return (
+                                        <div className="flex flex-col">
+                                            <span className="font-medium mb-5">
+                                                {item.title}
+                                            </span>
+                                            <div className="flex flex-col gap-3">
+                                                {item.subOptions.map(
+                                                    (subOption) => {
+                                                        return (
+                                                            <li className="text-neutral">
+                                                                <Link
+                                                                    href={
+                                                                        subOption.url
+                                                                    }
+                                                                >
+                                                                    {
+                                                                        subOption.title
+                                                                    }
+                                                                </Link>
+                                                            </li>
+                                                        );
+                                                    }
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </ul>
+                        </AnimatedContent>
                     </nav>
                 </div>
             </footer>

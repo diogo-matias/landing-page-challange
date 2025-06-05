@@ -1,3 +1,4 @@
+import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 import Button from "@/components/Button";
 import Image from "next/image";
 
@@ -37,20 +38,22 @@ export default function TopPlaces() {
         return (
             <div className="relative py-20">
                 {renderDetails()}
-                <div className="flex flex-col items-center justify-center">
-                    <div className="mb-2">
-                        <Button variant="secondary">Top Destinos</Button>
+                <AnimatedContent>
+                    <div className="flex flex-col items-center justify-center">
+                        <div className="mb-2">
+                            <Button variant="secondary">Top Destinos</Button>
+                        </div>
+                        <h2 className="title-1 text-center">
+                            Destinos mais procurados
+                        </h2>
+                        <p className="text-center text-neutral">
+                            Confira os destinos mais procurados por nossos
+                            clientes nos últimos meses, <br />
+                            qual seria o seu novo destino?
+                        </p>
+                        <Button className="mt-10">Conheça mais</Button>
                     </div>
-                    <h2 className="title-1 text-center">
-                        Destinos mais procurados
-                    </h2>
-                    <p className="text-center text-neutral">
-                        Confira os destinos mais procurados por nossos clientes
-                        nos últimos meses, <br />
-                        qual seria o seu novo destino?
-                    </p>
-                    <Button className="mt-10">Conheça mais</Button>
-                </div>
+                </AnimatedContent>
             </div>
         );
     }
@@ -95,17 +98,22 @@ export default function TopPlaces() {
 
         return (
             <div className="w-[80vw] lg:w-[60vw] max-w-[1300px] mx-auto  ">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-5">
-                    {imagesData.map((images) => {
-                        return (
-                            <div className="flex flex-col sm:flex-row md:flex-col gap-5">
-                                {images.map((image) => {
-                                    return renderImage(image.url, image.title);
-                                })}
-                            </div>
-                        );
-                    })}
-                </div>
+                <AnimatedContent>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+                        {imagesData.map((images) => {
+                            return (
+                                <div className="flex flex-col sm:flex-row md:flex-col gap-5">
+                                    {images.map((image) => {
+                                        return renderImage(
+                                            image.url,
+                                            image.title
+                                        );
+                                    })}
+                                </div>
+                            );
+                        })}
+                    </div>
+                </AnimatedContent>
             </div>
         );
     }

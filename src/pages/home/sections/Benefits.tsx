@@ -1,4 +1,5 @@
 import Accordion from "@/components/Accordion";
+import AnimatedContent from "@/components/AnimatedContent/AnimatedContent";
 import Button from "@/components/Button";
 import Image from "next/image";
 import { useState } from "react";
@@ -92,10 +93,17 @@ export default function Benefits() {
 
     return (
         <div className="mt-24 mb-10">
-            {renderTop()}
+            <AnimatedContent>{renderTop()}</AnimatedContent>
             <div className="flex flex-col lg:flex-row gap-5">
-                <div className="w-full lg:w-[60%]">{renderBanner()}</div>
-                <div className="w-full lg:w-[40%]">{renderAccordions()}</div>
+                <div className="w-full lg:w-[60%]">
+                    <AnimatedContent>{renderBanner()}</AnimatedContent>
+                </div>
+
+                <div className="w-full lg:w-[40%]">
+                    <AnimatedContent delay={0.5}>
+                        {renderAccordions()}
+                    </AnimatedContent>
+                </div>
             </div>
         </div>
     );
