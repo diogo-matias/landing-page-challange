@@ -37,7 +37,7 @@ export default function LastSection() {
                         </div>
                     </div>
                 </AnimatedContent>
-                <AnimatedContent delay={1}>
+                <AnimatedContent>
                     <div className="mt-10 md:mt-0">{customButton()}</div>
                 </AnimatedContent>
             </div>
