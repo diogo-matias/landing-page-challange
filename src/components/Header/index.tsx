@@ -2,7 +2,6 @@ import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { forwardRef, useImperativeHandle, useState } from "react";
-import Button from "./Button";
 
 const options = ["Home", "Quem somos", "Serviços", "Contato"];
 const selected = "Home";
