@@ -1,10 +1,12 @@
-import Wrapper from "@/components/Wrapper";
-import Hero from "./sections/Hero";
-import VisaConsulting from "./sections/VisaConsulting";
-import Benefits from "./sections/Benefits";
-import TopPlaces from "./sections/TopPlaces";
-import TravelPackage from "./sections/TravelPackage";
-import LastSection from "./sections/LastSection";
+import dynamic from "next/dynamic";
+
+const Hero = dynamic(() => import("./sections/Hero"));
+const VisaConsulting = dynamic(() => import("./sections/VisaConsulting"));
+const Benefits = dynamic(() => import("./sections/Benefits"));
+const TopPlaces = dynamic(() => import("./sections/TopPlaces"));
+const TravelPackage = dynamic(() => import("./sections/TravelPackage"));
+const LastSection = dynamic(() => import("./sections/LastSection"));
+const Wrapper = dynamic(() => import("@/components/Wrapper"));
 
 export default function Home() {
     return (
