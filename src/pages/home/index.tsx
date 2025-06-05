@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 const Hero = dynamic(() => import("./sections/Hero"));
 const VisaConsulting = dynamic(() => import("./sections/VisaConsulting"));
@@ -11,6 +12,13 @@ const Wrapper = dynamic(() => import("@/components/Wrapper"));
 export default function Home() {
     return (
         <div>
+            <Head>
+                <title>Landing Page Challenge</title>
+                <meta
+                    name="description"
+                    content="Confira nossos pacotes de viagem, benefícios e serviços exclusivos. Sua próxima aventura começa aqui!"
+                />
+            </Head>
             <div
                 className={`w-[100%] max-w-[1440px] mx-auto flex flex-col justify-center`}
             >
