@@ -9,7 +9,7 @@ module.exports = {
     '^next/image$': '<rootDir>/__mocks__/next/image.js',
   },
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
-  },
+    transform: {
+      '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+    },
 };

@@ -19,7 +19,7 @@ describe("Accordion component", () => {
 
         expect(screen.getByText(title)).toBeInTheDocument();
         expect(screen.getByText("+ Leia Mais")).toBeInTheDocument();
-        expect(screen.queryByText(content)).toBeInTheDocument(); // está no DOM, mas escondido via estilo
+        expect(screen.queryByText(content)).toBeInTheDocument();
     });
 
     test('chama setIsOpen ao clicar em "+ Leia Mais"', () => {
@@ -52,6 +52,6 @@ describe("Accordion component", () => {
         );
 
         expect(screen.getByText(content)).toBeInTheDocument();
-        expect(screen.queryByText("+ Leia Mais")).not.toBeInTheDocument(); // não aparece quando aberto
+        expect(screen.queryByText("+ Leia Mais")).not.toBeInTheDocument();
     });
 });
