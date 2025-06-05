@@ -48,7 +48,7 @@ export default function VisaConsulting() {
                             </h1>
                         </div>
                     </AnimatedContent>
-                    <AnimatedContent delay={1}>
+                    <AnimatedContent delay={0.2}>
                         <div className="relative mt-5 lg:mt-0">
                             {renderIconContainer(
                                 "clock",
