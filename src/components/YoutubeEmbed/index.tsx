@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import Button from "./Button";
-import { ArrowIcon } from "./icons/ArrowIcon";
+import Button from "../Button";
+import { ArrowIcon } from "../icons/ArrowIcon";
 
 const YoutubeEmbed = () => {
     const [playing, setPlaying] = useState(false);

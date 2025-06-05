@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import Button from "../Button";
 import { twMerge } from "tailwind-merge";
-import useWindowDimensions from "@/hooks/useWindowDimentions";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
 
 const Carousel = forwardRef((props, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);

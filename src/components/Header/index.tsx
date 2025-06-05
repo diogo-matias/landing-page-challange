@@ -51,6 +51,7 @@ export const Header = forwardRef(function Header(props, ref) {
 
                             return (
                                 <li
+                                    key={option}
                                     className={`${customStyle} text-xl px-10 py-5 hover:bg-light-gray  last:border-none cursor-pointer`}
                                     onClick={handleToggle}
                                 >
